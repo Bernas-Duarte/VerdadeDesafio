@@ -3,10 +3,10 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title></title>
+    <title>Verdade ou Desafio | Online e Gratuito</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="">
+    <meta property="og:title" content="Verdade ou Desafio | Online e Gratuito">
     <meta property="og:type" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
@@ -15,12 +15,45 @@
     <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" href="dist/css/main.min.css">
-    <meta name="theme-color" content="#fafafa">
+    <meta name="theme-color" content="#2c3e50">
 </head>
 
 <body>
 
-    
+    <section class="sec-players">
+        <div class="container">
+
+            <h1 class="sec-title">
+                Verdade ou Desafio?
+            </h1>
+
+            <p class="sec-intro">
+                O jogo também conhecido em alguns lugares pelo nome de <b>Verdade ou Consequência</b>, as regras são simples: o jogador sorteado deve escolher se prefere <b>"Verdade"</b> ou <b>"Desafio"</b>, se escolher <b>"Verdade"</b> o jogador terá que responder pergunta que for exibida. Caso escolha <b>"Desafio"</b>, o jogador terá que performar a consequência exibida.
+            </p>
+
+            <div class="wrap">
+                <div class="input-group">
+                    <input type="text" class="player-name" placeholder="Jogador(a)" />
+                </div>
+
+                <div class="input-group">
+                    <input type="text" class="player-name" placeholder="Jogador(a)" />
+                </div>
+            </div>
+
+            <span class="alert"></span>
+
+            <button type="button" class="btn bt-add-player" id="btAddPlayer">
+                <i class="fa-solid fa-plus"></i> Adicionar mais Jogadores
+            </button>
+
+            <button type="button" class="btn bt-start" id="btStart">
+                <i class="fa-solid fa-play"></i> Começar o Jogo
+            </button>
+           
+        </div>
+         
+    </section>
 
 
 
@@ -30,19 +63,18 @@
 
 
 
+    <footer class="sec-footer">
 
-
-
+        <div class="container">
+            <p>&copy; 2022 - Developer by <a href="https://mateusdanieel.github.io/" target="_blank">Mateus Daniel</a></p>
+        </div>
+        
+    </footer>
 
     <script src="dist/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="dist/js/plugins.min.js"></script>
+    <script src="dist/js/font-awesome.min.js" crossorigin="anonymous"></script>
     <script src="dist/js/main.min.js"></script>
 
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+.sec-players {
+    .sec-title {
+        font-family: 'Lobster', cursive;
+        color: #FFF;
+        text-align: center;
+        font-size: 48px;
+        margin: 15vh 0 0;
+    }
+
+    .sec-intro {
+        font-size: 16px;
+        color: #FFF;
+        text-align: center;
+        margin: 25px 0 50px;
+        line-height: 1.5;
+    }
+
+    .bt-add-player {
+        background-color: #27ae60;
+        color: #FFF;
+        margin: 20px auto 0;
+    }
+
+    .bt-start {
+        margin: 20px auto 0;
+        background-color: #3498db;
+        color: #FFF;
+    }
+
+    .alert {
+        
+        b {
+            font-weight: 600;
+        }
+
+        display: none;
+        text-align: center;
+        background-color: rgba(#e74c3c, .8);
+        padding: 10px;
+        color: #FFF;
+        border: 2px solid #e74c3c;
+    }
+}

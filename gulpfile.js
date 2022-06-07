@@ -4,7 +4,7 @@ const browsersync = require('browser-sync').create();
 
 const rename = require("gulp-rename");
 const jsmin = require('gulp-uglify');
-const imgmin = require('gulp-image');
+//const imgmin = require('gulp-image');
 var sass = require('gulp-sass')(require('sass'));
 const babel = require('gulp-babel');
 const cssimport = require('gulp-cssimport');
@@ -51,13 +51,13 @@ function css() {
 
 function js() {
     return src('src/js/**/*.js')
-
+    /*
     .pipe(babel({
         presets:['@babel/env']
     }))
-
+    
     .pipe(jsmin())
-
+*/
     .pipe(rename({
         extname:'.min.js'
     }))
@@ -66,7 +66,7 @@ function js() {
 
     .pipe(browsersync.stream())
 }
-
+/*
 function img() {
     return src('src/img/**')
 
@@ -74,7 +74,7 @@ function img() {
 
     .pipe(dest('dist/img'))
 }
-
+*/
 function att() {
     watch(['./src/css/*.css'], css);
 
@@ -84,7 +84,8 @@ function att() {
 }
 
 exports.default = series(
-    parallel(html, css, js, img),
+    //parallel(html, css, js, img),
+    parallel(html, css, js),
     
     parallel(sync, att)
 );
