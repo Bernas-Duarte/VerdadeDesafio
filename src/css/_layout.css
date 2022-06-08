@@ -43,6 +43,8 @@
 }
 
 .sec-verdade-desafio {
+    display: none;
+
     .sec-title {
         text-align: center;
         color: #FFF;
@@ -70,5 +72,24 @@
     .bt-desafio {
         background-color: #2980b9;
         color: #FFF;
+    }
+}
+
+.sec-pergunta {
+    display: none;
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .sec-title {
+        font-size: 48px;
+        color: #FFF;
+        text-align: center;
+        
     }
 }
