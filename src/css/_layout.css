@@ -4,7 +4,7 @@
         color: #FFF;
         text-align: center;
         font-size: 48px;
-        margin: 15vh 0 0;
+        margin: 50px 0 0;
     }
 
     .sec-intro {
@@ -39,5 +39,36 @@
         padding: 10px;
         color: #FFF;
         border: 2px solid #e74c3c;
+    }
+}
+
+.sec-verdade-desafio {
+    .sec-title {
+        text-align: center;
+        color: #FFF;
+        font-weight: 400;
+        margin: 50px 0 0;
+
+        span {
+            text-transform: uppercase;
+        }
+
+        span, b {
+            font-weight: 600;
+        }
+    }
+
+    .btn-group {
+        margin: 20px 0 0;
+    }
+
+    .bt-verdade {
+        background-color: #27ae60;
+        color: #FFF;
+    }
+
+    .bt-desafio {
+        background-color: #2980b9;
+        color: #FFF;
     }
 }

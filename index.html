@@ -33,11 +33,11 @@
 
             <div class="wrap">
                 <div class="input-group">
-                    <input type="text" class="player-name" placeholder="Jogador(a)" />
+                    <input type="text" class="player-name" placeholder="Jogador(a)" maxlength="20" />
                 </div>
 
                 <div class="input-group">
-                    <input type="text" class="player-name" placeholder="Jogador(a)" />
+                    <input type="text" class="player-name" placeholder="Jogador(a)" maxlength="20" />
                 </div>
             </div>
 
@@ -55,6 +55,31 @@
          
     </section>
 
+    <section class="sec-verdade-desafio">
+        <div class="container">
+            <h2 class="sec-title">
+                <span id="playerName">
+                    <!-- NOME DO JOGADOR -->
+                </span>
+
+                é a sua vez!<br /> 
+                Você escolhe <b>Verdade ou Desafio?</b>
+            </h2>
+
+            <div class="btn-group">
+                <button type="button" class="btn bt-verdade">
+                    <i class="fa-solid fa-comments-question"></i> Verdade
+                </button>
+
+                <button type="button" class="btn bt-desafio">
+                    <i class="fa-solid fa-sword"></i> Desafio
+                </button>
+            </div>
+
+
+        </div>
+    </section>
+
 
 
 
@@ -68,7 +93,7 @@
         <div class="container">
             <p>&copy; 2022 - Developer by <a href="https://mateusdanieel.github.io/" target="_blank">Mateus Daniel</a></p>
         </div>
-        
+
     </footer>
 
     <script src="dist/js/vendor/modernizr-3.11.2.min.js"></script>
