@@ -10,6 +10,15 @@
   btAddPlayer.addEventListener('click', () => {
     let input = document.querySelector('.input-group').cloneNode(true);
     document.querySelector('.sec-players .wrap').appendChild(input).lastChild;
+
+    let inputs = document.querySelectorAll('.sec-players .wrap .input-group input');
+
+    inputs.forEach((el, i, arr) => {
+      if((i + 1) == arr.length) {
+        el.value = '';
+      }
+    });
+
   });
 
   btStart.addEventListener('click', () => {

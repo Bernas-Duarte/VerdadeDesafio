@@ -1,4 +1,6 @@
 .sec-players {
+    height: 100vh;
+    
     .sec-title {
         font-family: 'Lobster', cursive;
         color: #FFF;
@@ -44,6 +46,7 @@
 
 .sec-verdade-desafio {
     display: none;
+    min-height: 100vh;
 
     .sec-title {
         text-align: center;
@@ -90,6 +93,10 @@
         font-size: 48px;
         color: #FFF;
         text-align: center;
-        
+    }
+
+    .bt-sortear {
+        background-color: #3498db;
+        color: #FFF;
     }
 }
