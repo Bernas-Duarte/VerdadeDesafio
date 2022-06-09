@@ -65,7 +65,7 @@
           secVerdadeDesafio.style.display = 'none';
           secPergunta.style.display = 'block';
 
-          fetch("../../src/js/questions.json")
+          fetch("../src/js/questions.json")
           .then(response => {
             return response.json();
           })
@@ -80,13 +80,13 @@
           );
 
         });
-
+ 
         btDesafio.addEventListener('click', () => {
 
           secVerdadeDesafio.style.display = 'none';
           secPergunta.style.display = 'block';
 
-          fetch("../../src/js/questions.json")
+          fetch("../src/js/questions.json")
           .then(response => {
             return response.json();
           })
