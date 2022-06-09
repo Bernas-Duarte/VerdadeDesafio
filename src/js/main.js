@@ -2,6 +2,7 @@
 
   let btAddPlayer = document.getElementById('btAddPlayer');
   let btStart = document.getElementById('btStart');
+  let btSortear = document.getElementById('btSortear');
   let players = [];
   let secPlayers = document.querySelector('.sec-players');
   let secVerdadeDesafio = document.querySelector('.sec-verdade-desafio');
@@ -20,6 +21,8 @@
     });
 
   });
+
+
 
   btStart.addEventListener('click', () => {
     let playersNames = document.querySelectorAll('.player-name');
@@ -44,57 +47,80 @@
       let playerName = document.getElementById('playerName');
       let btVerdade = document.getElementById('btVerdade');
       let btDesafio = document.getElementById('btDesafio');
+      let loading = document.getElementById('loading');
 
-      secPlayers.style.display = 'none';
-      secVerdadeDesafio.style.display = 'block';
+      loading.style.display = 'flex';
 
-      playerName.innerHTML = players[player];
+      setTimeout(() => {
+        loading.style.display = 'none';
+
+        secPlayers.style.display = 'none';
+        secVerdadeDesafio.style.display = 'block';
+        secPergunta.style.display = 'none';
+
+        playerName.innerHTML = players[player];
+        
+        btVerdade.addEventListener('click', () => {
+
+          secVerdadeDesafio.style.display = 'none';
+          secPergunta.style.display = 'block';
+
+          fetch("../../src/js/questions.json")
+          .then(response => {
+            return response.json();
+          })
+          .then(data => 
+            (function() {
+              let random = Math.floor(Math.random() * data.verdades.length);
+              document.querySelector('.sec-pergunta .sec-title').innerHTML = data.verdades[random];
+
+            })()
+
+              
+          );
+
+        });
+
+        btDesafio.addEventListener('click', () => {
+
+          secVerdadeDesafio.style.display = 'none';
+          secPergunta.style.display = 'block';
+
+          fetch("../../src/js/questions.json")
+          .then(response => {
+            return response.json();
+          })
+          .then(data => 
+            (function() {
+              let random = Math.floor(Math.random() * data.desafios.length);
+              document.querySelector('.sec-pergunta .sec-title').innerHTML = data.desafios[random];
+              console.log(random, data.desafios[random])
+            })()
+
+              
+          );
+
+          
+
+        });
+
+        }, 3000);
+
+        btSortear.addEventListener('click', () => {
+          var i = 0;
+          btStart.dispatchEvent(new Event('click'));
       
-      btVerdade.addEventListener('click', () => {
+          console.log(i++); // AJUSTAR DPS
+        });
+        
+      }
 
-        secVerdadeDesafio.style.display = 'none';
-        secPergunta.style.display = 'block';
-
-        fetch("../../src/js/questions.json")
-        .then(response => {
-          return response.json();
-        })
-        .then(data => 
-          (function() {
-            const random = Math.floor(Math.random() * data.verdades.length);
-            document.querySelector('.sec-pergunta .sec-title').innerHTML = data.verdades[random];
-
-          })()
-
-            
-        );
-
-      });
-
-      btDesafio.addEventListener('click', () => {
-
-        secVerdadeDesafio.style.display = 'none';
-        secPergunta.style.display = 'block';
-
-        fetch("../../src/js/questions.json")
-        .then(response => {
-          return response.json();
-        })
-        .then(data => 
-          (function() {
-            const random = Math.floor(Math.random() * data.desafios.length);
-            document.querySelector('.sec-pergunta .sec-title').innerHTML = data.desafios[random];
-
-          })()
-
-            
-        );
-
-      });
       
-    }
 
   });
+
+  
+
 
 
 
