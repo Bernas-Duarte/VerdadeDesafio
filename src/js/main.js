@@ -65,7 +65,7 @@
           secVerdadeDesafio.style.display = 'none';
           secPergunta.style.display = 'block';
 
-          fetch("../src/js/questions.json")
+          fetch("https://mateusdanieel.github.io/VerdadeDesafio/src/js/questions.json")
           .then(response => {
             return response.json();
           })
@@ -86,10 +86,10 @@
           secVerdadeDesafio.style.display = 'none';
           secPergunta.style.display = 'block';
 
-          fetch("../src/js/questions.json")
+          fetch("https://mateusdanieel.github.io/VerdadeDesafio/src/js/questions.json")
           .then(response => {
             return response.json();
-          })
+          }) 
           .then(data => 
             (function() {
               let random = Math.floor(Math.random() * data.desafios.length);
