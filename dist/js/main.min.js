@@ -32,6 +32,8 @@
 
     loading.style.display = 'flex';
 
+    window.scrollTo(0, 0);
+
     setTimeout(() => {
       loading.style.display = 'none';
 

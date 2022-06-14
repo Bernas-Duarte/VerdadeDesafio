@@ -5,8 +5,30 @@
     font-family: 'Maven Pro', sans-serif;
 }
 
+%scrollbar {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent; 
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(#FFF, .3);
+
+        &:hover {
+            background: rgba(#FFF, .1); 
+        }
+    }
+}
+
+html {
+    @extend %scrollbar;
+}
+
 body {
-    background: #2c3e50;
+    background: #041A27;
 }
 
 .container {
@@ -49,11 +71,10 @@ body {
     i {
         margin: 0 2.5px 0 0;
     }
-}
 
-.btn-group {
-    display: flex;
-    justify-content: center;
+    &:hover {
+        opacity: .8;
+    }
 }
 
 .sec-footer {
@@ -63,7 +84,8 @@ body {
         text-align: center;
         color: rgba(#FFF, .3);
         margin: 40px 0 10px;
-        font-size: 14px;
+        font-size: 11px;
+        text-transform: uppercase;
 
         a {
             text-decoration: none;
@@ -76,7 +98,7 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
-    background-color: rgba(#000, .9);
+    background-color: rgba(#041A27, 1);
     position: fixed;
     top: 0;
     left: 0;
@@ -99,5 +121,16 @@ body {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    
+    a {
+        color: #FFF;
+        text-decoration: none;
     }
 }

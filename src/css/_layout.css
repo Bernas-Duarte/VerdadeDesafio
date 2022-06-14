@@ -18,14 +18,14 @@
     }
 
     .bt-add-player {
-        background-color: #27ae60;
+        background-color: #da0942;
         color: #FFF;
         margin: 20px auto 0;
     }
 
     .bt-start {
         margin: 20px auto 0;
-        background-color: #3498db;
+        background-color: #da0942;
         color: #FFF;
     }
 
@@ -37,10 +37,10 @@
 
         display: none;
         text-align: center;
-        background-color: rgba(#e74c3c, .8);
+        background-color: rgba(#da0942, .5);
         padding: 10px;
         color: #FFF;
-        border: 2px solid #e74c3c;
+        border: 2px solid #da0942;
     }
 }
 
@@ -63,18 +63,20 @@
         }
     }
 
-    .btn-group {
-        margin: 20px 0 0;
+    .btn {
+        min-width: 171.03px;
     }
 
     .bt-verdade {
-        background-color: #27ae60;
+        background-color: #da0942;
         color: #FFF;
+        margin: 20px auto 0;
     }
 
     .bt-desafio {
-        background-color: #2980b9;
+        background-color: #da0942;
         color: #FFF;
+        margin: 20px auto 0;
     }
 }
 
@@ -96,7 +98,7 @@
     }
 
     .bt-sortear {
-        background-color: #3498db;
+        background-color: #da0942;
         color: #FFF;
     }
 }
