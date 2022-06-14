@@ -1,5 +1,5 @@
 (function () {
-  
+
   let btAddPlayer = document.getElementById('btAddPlayer');
   let btStart = document.getElementById('btStart');
   let btSortear = document.getElementById('btSortear');
@@ -82,11 +82,8 @@
     .then(data => {
         const random = Math.floor(Math.random() * data.verdades.length);
         const DOMText = document.querySelector('.sec-pergunta .sec-title');
-
-        console.log(random, data.verdades[random]);
         
         return DOMText.innerHTML = data.verdades[random];
-
       }            
     );
 
