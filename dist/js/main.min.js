@@ -1,5 +1,5 @@
 (function () {
-
+  
   let btAddPlayer = document.getElementById('btAddPlayer');
   let btStart = document.getElementById('btStart');
   let btSortear = document.getElementById('btSortear');
@@ -7,7 +7,10 @@
   let secPlayers = document.querySelector('.sec-players');
   let secVerdadeDesafio = document.querySelector('.sec-verdade-desafio');
   let secPergunta = document.querySelector('.sec-pergunta');
+  let btVerdade = document.getElementById('btVerdade');
+  let btDesafio = document.getElementById('btDesafio');
 
+  // ADICIONA MAIS CAMPOS DE JOGADORES NO FORMULÁRIO
   btAddPlayer.addEventListener('click', () => {
     let input = document.querySelector('.input-group').cloneNode(true);
     document.querySelector('.sec-players .wrap').appendChild(input).lastChild;
@@ -21,11 +24,10 @@
 
   });
 
+  // FAZ O SORTEIO DO JOGADOR QUE SERÁ SELECIONADO PARA RESPONDER
   function run() {
     let player = Math.floor(Math.random() * players.length);
     let playerName = document.getElementById('playerName');
-    let btVerdade = document.getElementById('btVerdade');
-    let btDesafio = document.getElementById('btDesafio');
     let loading = document.getElementById('loading');
 
     loading.style.display = 'flex';
@@ -39,50 +41,11 @@
 
       playerName.innerHTML = players[player];
       
-      btVerdade.addEventListener('click', () => {
-
-        secVerdadeDesafio.style.display = 'none';
-        secPergunta.style.display = 'block';
-
-        fetch("./questions.json")
-        .then(response => {
-          return response.json();
-        })
-        .then(data => 
-          
-          (function() {
-            let random = Math.floor(Math.random() * data.verdades.length);
-            document.querySelector('.sec-pergunta .sec-title').innerHTML = data.verdades[random];
-
-          })()
-
-            
-        );
-
-      });
-
-      btDesafio.addEventListener('click', () => {
-
-        secVerdadeDesafio.style.display = 'none';
-        secPergunta.style.display = 'block';
-
-        fetch("./questions.json") 
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-            const random = Math.floor(Math.random() * data.desafios.length);
-            const DOMText = document.querySelector('.sec-pergunta .sec-title');
-            
-            return DOMText.innerHTML = data.desafios[random];
-          }            
-        );
-      });
-
       }, 3000);
 
   }
 
+  // ADICIONA JOGADORES LISTADOS PELO USUÁRIO E VALIDA SE O NÚMERO DE JOGADORES É VALIDO
   btStart.addEventListener('click', () => {
     let playersNames = document.querySelectorAll('.player-name');
 
@@ -106,7 +69,56 @@
 
   });
 
+  // FAZ UMA REQUISIÇÃO PARA TRAZER A PERGUNTA A SER FEITA PARA O JOGADOR SORTEADO
+  btVerdade.addEventListener('click', () => {
+
+    secVerdadeDesafio.style.display = 'none';
+    secPergunta.style.display = 'block';
+
+    fetch("./questions.json") 
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+        const random = Math.floor(Math.random() * data.verdades.length);
+        const DOMText = document.querySelector('.sec-pergunta .sec-title');
+
+        console.log(random, data.verdades[random]);
+        
+        return DOMText.innerHTML = data.verdades[random];
+
+      }            
+    );
+
+  });
+
+  // FAZ UMA REQUISIÇÃO PARA TRAZER O DESAFIO A SER FEITO PARA O JOGADOR SORTEADO
+  btDesafio.addEventListener('click', () => {
+
+    secVerdadeDesafio.style.display = 'none';
+    secPergunta.style.display = 'block';
+
+    fetch("./questions.json") 
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+        const random = Math.floor(Math.random() * data.desafios.length);
+        const DOMText = document.querySelector('.sec-pergunta .sec-title');
+        
+        return DOMText.innerHTML = data.desafios[random];
+      }            
+    );
+  });
+
+  // REALIZA UM NOVO SORTEIO
   btSortear.addEventListener('click', () => {
+    const DOMText = document.querySelector('.sec-pergunta .sec-title');
+
+    setTimeout(() => {
+      DOMText.innerHTML = '';
+    }, 3000);
+    
     run();
   });
   
