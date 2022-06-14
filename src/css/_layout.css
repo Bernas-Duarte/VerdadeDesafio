@@ -1,5 +1,5 @@
 .sec-players {
-    height: 100vh;
+    min-height: 100vh;
     
     .sec-title {
         font-family: 'Lobster', cursive;

@@ -57,6 +57,8 @@ body {
 }
 
 .sec-footer {
+    display: block;
+    
     p {
         text-align: center;
         color: rgba(#FFF, .3);

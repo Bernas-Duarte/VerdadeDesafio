@@ -11,7 +11,6 @@
   btAddPlayer.addEventListener('click', () => {
     let input = document.querySelector('.input-group').cloneNode(true);
     document.querySelector('.sec-players .wrap').appendChild(input).lastChild;
-
     let inputs = document.querySelectorAll('.sec-players .wrap .input-group input');
 
     inputs.forEach((el, i, arr) => {
@@ -22,7 +21,67 @@
 
   });
 
+  function run() {
+    let player = Math.floor(Math.random() * players.length);
+    let playerName = document.getElementById('playerName');
+    let btVerdade = document.getElementById('btVerdade');
+    let btDesafio = document.getElementById('btDesafio');
+    let loading = document.getElementById('loading');
 
+    loading.style.display = 'flex';
+
+    setTimeout(() => {
+      loading.style.display = 'none';
+
+      secPlayers.style.display = 'none';
+      secVerdadeDesafio.style.display = 'block';
+      secPergunta.style.display = 'none';
+
+      playerName.innerHTML = players[player];
+      
+      btVerdade.addEventListener('click', () => {
+
+        secVerdadeDesafio.style.display = 'none';
+        secPergunta.style.display = 'block';
+
+        fetch("./questions.json")
+        .then(response => {
+          return response.json();
+        })
+        .then(data => 
+          
+          (function() {
+            let random = Math.floor(Math.random() * data.verdades.length);
+            document.querySelector('.sec-pergunta .sec-title').innerHTML = data.verdades[random];
+
+          })()
+
+            
+        );
+
+      });
+
+      btDesafio.addEventListener('click', () => {
+
+        secVerdadeDesafio.style.display = 'none';
+        secPergunta.style.display = 'block';
+
+        fetch("./questions.json") 
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+            const random = Math.floor(Math.random() * data.desafios.length);
+            const DOMText = document.querySelector('.sec-pergunta .sec-title');
+            
+            return DOMText.innerHTML = data.desafios[random];
+          }            
+        );
+      });
+
+      }, 3000);
+
+  }
 
   btStart.addEventListener('click', () => {
     let playersNames = document.querySelectorAll('.player-name');
@@ -42,98 +101,13 @@
       alert.innerHTML = '<b>ERRO!</b> Insira pelo menos <b>2 jogadores</b> para começar.';
 
     } else {
-
-      let player = Math.floor(Math.random() * players.length);
-      let playerName = document.getElementById('playerName');
-      let btVerdade = document.getElementById('btVerdade');
-      let btDesafio = document.getElementById('btDesafio');
-      let loading = document.getElementById('loading');
-
-      loading.style.display = 'flex';
-
-      setTimeout(() => {
-        loading.style.display = 'none';
-
-        secPlayers.style.display = 'none';
-        secVerdadeDesafio.style.display = 'block';
-        secPergunta.style.display = 'none';
-
-        playerName.innerHTML = players[player];
-        
-        btVerdade.addEventListener('click', () => {
-
-          secVerdadeDesafio.style.display = 'none';
-          secPergunta.style.display = 'block';
-
-          fetch("https://mateusdanieel.github.io/VerdadeDesafio/src/js/questions.json")
-          .then(response => {
-            return response.json();
-          })
-          .then(data => 
-            (function() {
-              let random = Math.floor(Math.random() * data.verdades.length);
-              document.querySelector('.sec-pergunta .sec-title').innerHTML = data.verdades[random];
-
-            })()
-
-              
-          );
-
-        });
- 
-        btDesafio.addEventListener('click', () => {
-
-          secVerdadeDesafio.style.display = 'none';
-          secPergunta.style.display = 'block';
-
-          fetch("https://mateusdanieel.github.io/VerdadeDesafio/src/js/questions.json")
-          .then(response => {
-            return response.json();
-          }) 
-          .then(data => 
-            (function() {
-              let random = Math.floor(Math.random() * data.desafios.length);
-              document.querySelector('.sec-pergunta .sec-title').innerHTML = data.desafios[random];
-              console.log(random, data.desafios[random])
-            })()
-
-              
-          );
-
-          
-
-        });
-
-        }, 3000);
-
-        btSortear.addEventListener('click', () => {
-          var i = 0;
-          btStart.dispatchEvent(new Event('click'));
-      
-          console.log(i++); // AJUSTAR DPS
-        });
-        
-      }
-
-      
+      run();
+    }
 
   });
 
+  btSortear.addEventListener('click', () => {
+    run();
+  });
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })();
