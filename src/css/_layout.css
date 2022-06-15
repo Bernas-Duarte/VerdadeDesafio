@@ -86,7 +86,6 @@
     .container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         min-height: 100vh;
     }
@@ -100,5 +99,23 @@
     .bt-sortear {
         background-color: #da0942;
         color: #FFF;
+    }
+}
+
+.sec-share-btns {
+    .sec-title {
+        color: #FFF;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0 0 30px;
+    }
+    .share-btns {
+        display: flex;
+        justify-content: space-evenly;
+        a {
+            text-decoration: none;
+            color: #da0942;
+
+        }
     }
 }
