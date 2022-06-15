@@ -107,7 +107,7 @@
         color: #FFF;
         text-align: center;
         text-transform: uppercase;
-        margin: 0 0 30px;
+        margin: 30px 0;
     }
     .share-btns {
         display: flex;
